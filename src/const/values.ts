@@ -14,5 +14,6 @@ export const navItems: NavItemData[] = [
 
 export const API_REQUESTS = {
   random: '/random.php',
+  searchByName: '/search.php',
 
 }

@@ -9,6 +9,8 @@ import Container from "@mui/material/Container";
 import React, {useState} from "react";
 import {getTheme} from "@/util/theme/Theme";
 import NavbarHome from "@/components/cartons/navbar/NavbarHome";
+import {Provider} from "react-redux";
+import {store} from "@/store";
 
 const roboto: NextFont = Montserrat({
   subsets: ["latin"],
@@ -35,22 +37,25 @@ export default function RootLayout({
     <html lang="en">
     <body className={roboto.className}>
 
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <Container maxWidth="lg" sx={{
-        px: {xs: 2, sm: 2, lg: 1}
-      }}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Container maxWidth="lg" sx={{
+          px: {xs: 2, sm: 2, lg: 1}
+        }}>
 
-        <header>
-          <Box sx={{
-            mt: {xs: 0, sm: 4},
-          }}>
-            <NavbarHome onThemeChange={handleOnThemeChange} prefersDarkMode={isDark}/>
-          </Box>
-        </header>
-        <main>{children}</main>
-      </Container>
-    </ThemeProvider>
+          <header>
+            <Box sx={{
+              mt: {xs: 0, sm: 4},
+            }}>
+              <NavbarHome onThemeChange={handleOnThemeChange} prefersDarkMode={isDark}/>
+            </Box>
+          </header>
+          <main>{children}</main>
+        </Container>
+      </ThemeProvider>
+    </Provider>
+
     </body>
     </html>
   )
