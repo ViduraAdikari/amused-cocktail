@@ -21,7 +21,8 @@ export const sampleCocktails: ICocktail[] = [
     id: 4,
     name: "Negroni",
     category: "cocktail",
-    photo: "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"
+    photo: "https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg",
+    isFavorite: true
   },
   {
     id: 5,
