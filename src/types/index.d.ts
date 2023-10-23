@@ -1,6 +1,13 @@
 interface ICocktail {
   id: number
-  photo: string
   name: string
   category: string
+  photo: string
+}
+
+type ApiDrink = {
+  idDrink: number
+  strDrink: string
+  strCategory: string
+  strDrinkThumb: string
 }
