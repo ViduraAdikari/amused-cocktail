@@ -14,7 +14,7 @@ const CocktailSkeletonList: React.FC<CocktailSkeletonListProps> =
     return (
       <Grid container spacing={2}>
         {
-          Array(numberOfSkeletons).fill("Skeleton").map((index: number) =>
+          Array(numberOfSkeletons).fill("Skeleton").map((value: string, index: number) =>
             (<Grid item key={index}><CocktailSkeleton/></Grid>))
         }
       </Grid>
