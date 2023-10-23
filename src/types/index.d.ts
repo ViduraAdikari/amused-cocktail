@@ -3,6 +3,7 @@ interface ICocktail {
   name: string
   category: string
   photo: string
+  isFavorite?: boolean
 }
 
 type ApiDrink = {
