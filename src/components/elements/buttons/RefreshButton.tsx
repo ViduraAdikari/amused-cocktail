@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, {PropsWithChildren, ReactNode} from "react";
 import Button from "@mui/material/Button";
@@ -11,6 +11,8 @@ type RefreshButtonProps = {
   size?: 'small' | 'medium' | 'large'
   /** child nodes */
   children: ReactNode,
+  /** if true button is disabled */
+  disabled?: boolean;
   /** onClick handler of the button */
   onClick?: () => void
 }
@@ -21,6 +23,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = (props: PropsWithChildren<Re
     variant,
     size,
     children,
+    disabled,
     onClick
   } = props;
 
@@ -36,6 +39,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = (props: PropsWithChildren<Re
             size={size ? size : "medium"}
             startIcon={<AutorenewOutlinedIcon/>}
             title="refresh to get new data"
+            disabled={disabled}
             onClick={handleClick}>
       {children}
     </Button>
