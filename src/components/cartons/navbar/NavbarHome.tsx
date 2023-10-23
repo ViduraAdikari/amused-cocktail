@@ -10,6 +10,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from "@mui/material/Button";
+import Badge from '@mui/material/Badge';
 import Drawer from "@mui/material/Drawer";
 import ThemeSwitch from "@/components/elements/switch/ThemeSwitch";
 import {Theme} from "@mui/material/styles";
@@ -19,6 +20,7 @@ import {isRoundedBorders, navItems} from "@/const/values";
 import {usePathname} from "next/navigation";
 import Stack from "@mui/material/Stack";
 import {NavItemData} from "@/components/cartons/navbar/nav-item";
+import {useAppSelector} from "@/store/hooks/hooks";
 
 const drawerWidth = 240;
 
@@ -31,6 +33,8 @@ const NavbarHome: React.FC<NavbarHomeProps> = (props: PropsWithChildren<NavbarHo
   const {prefersDarkMode} = props;
 
   const pathname = usePathname();
+
+  const favorites: ICocktail[] | null = useAppSelector(state => state.cocktails.favorites);
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -112,7 +116,14 @@ const NavbarHome: React.FC<NavbarHomeProps> = (props: PropsWithChildren<NavbarHo
                       }}
                     >
                       {item.label}
+
+                      {(item.label === "Favorites" && favorites)&&
+                        <Badge badgeContent={favorites.length} sx={{ml: 2}}
+                               color="warning"/>}
                     </Button>
+
+
+
                   </Link>
                 ))}
               </Box>

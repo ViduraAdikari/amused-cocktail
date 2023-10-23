@@ -1,6 +1,7 @@
 import React, {PropsWithChildren} from "react";
 import ResultsCount from "@/components/elements/search/ResultsCount";
 import SearchResultsList from "@/components/elements/search/SearchResultsList";
+import Box from "@mui/material/Box";
 
 type SearchResultsProps = {
   query: string
@@ -12,10 +13,10 @@ const SearchResults: React.FC<SearchResultsProps> = (props: PropsWithChildren<Se
   const {query, cocktails} = props;
 
   return (
-    <>
-      <ResultsCount resultsCount={12} query={query}/>
+    <Box sx={{mb: 10}}>
+      <ResultsCount resultsCount={cocktails.length} query={query}/>
       <SearchResultsList cocktails={cocktails}/>
-    </>
+    </Box>
   );
 };
 
